@@ -5,15 +5,14 @@ import webpack from 'webpack';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-export default {
+const isMultiBuild = process.env.build === 'multi';
+
+const config = {
   context: resolve(__dirname, 'src'),
   entry: './server.ts',
   output: {
     path: resolve(__dirname, 'dist'),
-    filename:
-      process.env.build === 'multi'
-        ? './multiserver.bundle.js'
-        : './server.bundle.js',
+    filename: isMultiBuild ? './multiserver.bundle.js' : './server.bundle.js',
     clean: true,
   },
   target: 'node',
@@ -35,3 +34,5 @@ export default {
     }),
   ],
 };
+
+export default config;
