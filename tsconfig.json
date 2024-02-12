@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "NodeNext",
+    "esModuleInterop": true,
+    "target": "es6",
+    "moduleResolution": "NodeNext",
+    "sourceMap": true,
+    "strict": true,
+    "outDir": "dist",
+    "alwaysStrict": true
+  },
+  "include": ["./src", "./tests"],
+  "ts-node": {
+    "esm": true
+  }
+}
